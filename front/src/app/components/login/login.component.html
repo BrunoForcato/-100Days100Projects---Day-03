@@ -1,0 +1,36 @@
+<div class="login">
+    <form action="" class="login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <section class="login__content">
+            <header class="login__header">
+                <h1 class="login__title">Sign In</h1>
+                <h2 class="login__subtitle">100DAYS100PROJECTS</h2>
+            </header>
+            <div class="login__input-group">
+                <label for="email" class="login__label">Email</label>
+                <input type="text" id="email" class="login__input" placeholder="Enter your email"
+                    formControlName="email"
+                    [ngClass]="{ 'error-input': loginForm.get('email')?.invalid && loginForm.get('email')?.touched && loginForm.get('email')?.errors }">
+                <div class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                    <div *ngIf="loginForm.get('email')?.errors?.['pattern']">invalid email!</div>
+                    <div *ngIf="loginForm.get('email')?.errors?.['required']">required email!</div>
+                </div>
+            </div>
+            <div class="login__input-group">
+                <label for="password" class="login__label">Password</label>
+                <input type="password" id="password" class="login__input" placeholder="Enter your password"
+                    formControlName="password"
+                    [ngClass]="{ 'error-input': loginForm.get('password')?.invalid && loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required'] }">
+                <div class="error"
+                    *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']">
+                    required password!</div>
+            </div>
+            <a href="#" class="login__forgot-password">Forgot Password</a>
+            <span *ngIf="this.loginError" class="error">Usuario não encontrado</span>
+            <button [ngClass]="{'error-input': this.loginError}" type="submit"
+                class="login__submit-button">Login</button>
+
+            <a style="color: #949494; font-size: 10px;" href="https://br.freepik.com/autor/upklyak">Imagem de upklyak no
+                Freepik</a>
+        </section>
+    </form>
+</div>

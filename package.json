@@ -1,0 +1,13 @@
+{
+  "name": "-100days100projects---day-03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "backend": "cd backend && npm start",
+    "front": "cd front && npm start",
+    "start": "start cmd /k npm run front & start cmd /k npm run backend"
+  },
+  "author": "",
+  "license": "ISC"
+}
